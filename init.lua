@@ -24,6 +24,7 @@ obj.mapping = {
   upright = { obj.mash, '2' },
   botleft = { obj.mash, '3' },
   botright = { obj.mash, '4' },
+  quarterupright = { obj.mash, '5' },
   maximum = { obj.mash, 'm' },
   toggleFullScreen = { obj.mash, 'f' },
   toggleZoom = { obj.mash, 'z' },
@@ -42,6 +43,7 @@ local units = {
   
   upleft50      = { x = 0.00, y = 0.00, w = 0.50, h = 0.50 },
   upright50     = { x = 0.50, y = 0.00, w = 0.50, h = 0.50 },
+  upright25     = { x = 0.75, y = 0.00, w = 0.25, h = 0.50 },
   botleft50     = { x = 0.00, y = 0.50, w = 0.50, h = 0.50 },
   botright50    = { x = 0.50, y = 0.50, w = 0.50, h = 0.50 },
   
@@ -118,6 +120,7 @@ function obj:upleft() move(units.upleft50, nil, true, 0) end
 function obj:upright() move(units.upright50, nil, true, 0) end
 function obj:botleft() move(units.botleft50, nil, true, 0) end
 function obj:botright() move(units.botright50, nil, true, 0) end
+function obj:quarterupright() move(units.upright25, nil, true, 0) end
 
 function obj:maximum() move(units.maximum, nil, true, 0) end
 
@@ -144,6 +147,7 @@ function obj:resizeIn() resizeWindowInSteps(false) end
 ---   * upright
 ---   * botleft
 ---   * botright
+---   * quarterupright
 ---   * maximum
 ---   * toggleFullScreen
 ---   * toggleZoom
@@ -166,6 +170,7 @@ function obj:bindHotkeys(mapping)
   hs.hotkey.bind(self.mapping.upright[1], self.mapping.upright[2], function() self:upright() end)
   hs.hotkey.bind(self.mapping.botleft[1], self.mapping.botleft[2], function() self:botleft() end)
   hs.hotkey.bind(self.mapping.botright[1], self.mapping.botright[2], function() self:botright() end)
+  hs.hotkey.bind(self.mapping.quarterupright[1], self.mapping.quarterupright[2], function() self:quarterupright() end)
   hs.hotkey.bind(self.mapping.maximum[1], self.mapping.maximum[2], function() self:maximum() end)
   hs.hotkey.bind(self.mapping.toggleFullScreen[1], self.mapping.toggleFullScreen[2], function() self:toggleFullScreen() end)
   hs.hotkey.bind(self.mapping.toggleZoom[1], self.mapping.toggleZoom[2], function() self:toggleZoom() end)
